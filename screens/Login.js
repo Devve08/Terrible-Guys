@@ -4,7 +4,13 @@ import { StatusBar } from "expo-status-bar";
 import { Octicons, Ionicons, Fontisto } from "@expo/vector-icons";
 import KeyboardAvoidingWrapper from "../Styles/KeyboardAvoidingWrapper";
 
-import { View, Image, KeyboardAvoidingView, ScrollView, Text } from "react-native";
+import {
+  View,
+  Image,
+  KeyboardAvoidingView,
+  ScrollView,
+  Text,
+} from "react-native";
 import {
   StyledContainer,
   InnerContainer,
@@ -24,8 +30,7 @@ import {
 
 import SessionContext from "../context/SessionContext";
 import logo from "../assets/images/t_logo.png";
-
-
+import { useFonts } from "expo-font";
 
 export default function Login({ navigation }) {
   const [hidePassword, setHidePassword] = useState(true);
@@ -35,6 +40,10 @@ export default function Login({ navigation }) {
     actions: { Login },
     error,
   } = useContext(SessionContext);
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
 
   return (
     <KeyboardAvoidingView
@@ -48,7 +57,18 @@ export default function Login({ navigation }) {
               style={{ width: 250, height: 200, resizeMode: "contain" }}
               source={logo}
             />
-            <SubTitle>Account Login</SubTitle>
+            <Text
+              style={{
+                fontSize: 16,
+                marginBottom: 40,
+                marginTop: 20,
+                letterSpacing: 1,
+                color: "black",
+                fontFamily: "Myriad-Regular"
+              }}
+            >
+              Account Login
+            </Text>
 
             <StyledFormArea>
               <MyTextInput
@@ -70,19 +90,19 @@ export default function Login({ navigation }) {
               />
               {error && <MsgBox>Something went wrong, try again!</MsgBox>}
               <StyledButton onPress={() => Login(username, password)}>
-                <ButtonText>Login</ButtonText>
+              <Text style={{color:'#D7AF43', fontSize: 18, fontFamily:'Myriad-Regular'}}>Login</Text>
               </StyledButton>
 
               <StyledButton
                 google={true}
                 onPress={() => navigation.replace("Welcome")}
               >
-                <ButtonText>Skip</ButtonText>
+                <Text style={{color:'#D7AF43', fontSize: 18, fontFamily:'Myriad-Regular'}}>Skip</Text>
               </StyledButton>
-            
-              
             </StyledFormArea>
-            <Text style={{fontWeight: 'bold', fontSize: 20, marginTop: 50 }} >WELCOME. WHERE TO GO?</Text>
+            <Text style={{ fontFamily: 'Myriad-Bold', fontSize: 20, marginTop: 50 }}>
+              WELCOME. WHERE TO GO?
+            </Text>
           </InnerContainer>
         </View>
       </ScrollView>
@@ -101,7 +121,7 @@ const MyTextInput = ({
   return (
     <View>
       <LeftIcon>
-        <Text style={{color: "#D7AF43", fontWeight: "bold"}}>{icon}</Text>
+        <Text style={{ color: "#D7AF43", fontWeight: "bold" }}>{icon}</Text>
       </LeftIcon>
       <StyledInputLabel>{label}</StyledInputLabel>
       <StyledTextInput {...props} />
@@ -110,7 +130,7 @@ const MyTextInput = ({
           <Ionicons
             name={hidePassword ? "md-eye-off" : "md-eye"}
             size={30}
-            color={'#D7AF43'}
+            color={"#D7AF43"}
           />
         </RightIcon>
       )}

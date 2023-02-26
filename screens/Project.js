@@ -1,3 +1,4 @@
+import { useFonts } from "expo-font";
 import React from "react";
 import {
   FlatList,
@@ -15,6 +16,10 @@ const data = [
 
 export default function Project({navigation, route}) {
   let project_id = route.params.project_id
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
   return (
     <View style={styles.container}>
       <FlatList
@@ -27,10 +32,10 @@ export default function Project({navigation, route}) {
           >
             <View>
               <Text style={styles.titleText}>{item.name}</Text>
-              <Text style={{ fontSize: 16, paddingHorizontal: 10 }}>{item.location}</Text>
+              <Text style={{ fontSize: 16, paddingHorizontal: 10, fontFamily: 'Myriad-Regular' }}>{item.location}</Text>
             </View>
 
-            <Text style={{ fontSize: 16, paddingHorizontal: 10 }}>
+            <Text style={{ fontSize: 16, paddingHorizontal: 10, fontFamily: 'Myriad-Regular' }}>
               {item.date}
             </Text>
           </TouchableOpacity>
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 17,
-    fontWeight: "bold",
+   fontFamily: 'Myriad-Bold',
     paddingHorizontal: 10,
   },
 });

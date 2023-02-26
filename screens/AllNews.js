@@ -1,4 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
 import React, {useContext, useState, useEffect} from 'react'
 import {View, FlatList, Text, Image, StyleSheet, TouchableOpacity} from 'react-native'
 
@@ -7,6 +8,11 @@ import SessionContext from '../context/SessionContext';
 export default function AllNews({navigation}) {
     const { getNewsInfo } = useContext(SessionContext);
     const [news, setNews] = useState([])
+    const [fontsLoaded] = useFonts({
+        "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+        "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+      });
+    
 
     useEffect(()=> {
         (async()=> {
@@ -24,7 +30,7 @@ export default function AllNews({navigation}) {
         renderItem={({item, index})=> (
             <TouchableOpacity onPress={()=>navigation.navigate('SingleNews', {item})} key={index} style={styles.newsContainer}>
                 <Image style={styles.image} source={{uri: item.news_profile}} />
-                <Text style={{fontSize: 16, fontWeight: 'bold', color: 'black'}}>{item.ln_news_title}</Text>
+                <Text style={{fontSize: 16, fontFamily: 'Myriad-Bold', color: 'black'}}>{item.ln_news_title}</Text>
             </TouchableOpacity>
         )}
         />

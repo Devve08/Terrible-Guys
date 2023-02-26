@@ -1,3 +1,4 @@
+import { useFonts } from "expo-font";
 import React, { useEffect, useContext } from "react";
 import {
   FlatList,
@@ -16,6 +17,10 @@ const data = ["Title 1", "Title 2", "Title 3", "Title 4"];
 
 export default function RecentWork({ navigation }) {
   const { projectsList, getProjectsList } = useContext(SessionContext);
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
 
   useEffect(() => {
     getProjectsList();
@@ -24,14 +29,14 @@ export default function RecentWork({ navigation }) {
   return (
     <View>
       <RowSpaceContainer>
-        <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 5, color: '#D7AF43' }}>
+        <Text style={{ fontSize: 20, fontFamily: 'Myriad-Bold', marginBottom: 5, color: '#D7AF43' }}>
           Recent Work
         </Text>
         <TouchableOpacity
           onPress={() => navigation.navigate("Projects")}
           style={{ flexDirection: "row", alignItems: "center" }}
         >
-          <Text style={{color: '#D7AF43'}}>View all</Text>
+          <Text style={{color: '#D7AF43', fontFamily: 'Myriad-Regular'}}>View all</Text>
           <Icon color={'#D7AF43'} name="arrow-right-alt" size={22} />
         </TouchableOpacity>
       </RowSpaceContainer>

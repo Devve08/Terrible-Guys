@@ -121,9 +121,9 @@ export default function SessionProvider({ children }) {
     let member_id = session.user.user_id;
     let g_hash = session.user.g_hash;
     let fk_category_id = id;
-    let params = { member_id, g_hash, fk_category_id };
+    let params = { fk_category_id };
     console.log("res", params);
-    let res = await getRequest(params, "request/api/getlistategories");
+    let res = await getRequest(params, "request/api/getlistcategories");
 
     return res;
   };

@@ -27,6 +27,7 @@ import terribleGuys from "../assets/images/t_guys_h.png";
 import { Dimensions, PixelRatio } from "react-native";
 import { useNotifications } from "../components/useNotifications";
 import messaging from '@react-native-firebase/messaging';
+import { useFonts } from "expo-font";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -34,6 +35,10 @@ const Stack = createNativeStackNavigator();
 function DrawerStack({ navigation }) {
   const { isLoading, isLoggedIn } = useContext(SessionContext);
   const { width, height } = Dimensions.get("window");
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
 
   const wp = number => {
     let givenWidth = typeof number === "number" ? number : parseFloat(number);
@@ -65,6 +70,7 @@ function DrawerStack({ navigation }) {
             name="Films"
             component={Welcome}
             options={{
+              drawerLabelStyle:{fontFamily: 'Myriad-Bold', fontSize: 18},
               // drawerIcon: ({ color }) => (
               //   <Ionicons name="home-outline" size={22} color={color} />
               // ),
@@ -85,7 +91,9 @@ function DrawerStack({ navigation }) {
           <Drawer.Screen
             name="City Guide"
             component={CityGuide}
+            
             options={{
+              drawerLabelStyle:{fontFamily: 'Myriad-Bold', fontSize: 18},
               // drawerIcon: ({ color }) => (
               //   <FontAwesome name="city" size={22} color={color} />
               // ),
@@ -112,6 +120,7 @@ function DrawerStack({ navigation }) {
               // drawerIcon: ({ color }) => (
               //   <FontAwesome name="project-diagram" size={22} color={color} />
               // ),
+             drawerLabelStyle:{fontFamily: 'Myriad-Bold', fontSize: 18},
               headerTitle: () => {
                 return (
                   <Image
@@ -123,6 +132,7 @@ function DrawerStack({ navigation }) {
               headerStyle: {
                 backgroundColor: "#D7AF43",
                 height: hp("20%"),
+                
               },
             }}
           />
@@ -130,6 +140,7 @@ function DrawerStack({ navigation }) {
             name="AllNews"
             component={AllNews}
             options={{
+              drawerLabelStyle:{fontFamily: 'Myriad-Bold', fontSize: 18},
               title: "News",
               headerShown: true,
               // drawerIcon: ({ color }) => (
@@ -195,6 +206,10 @@ function DrawerStack({ navigation }) {
 export default function RootStack() {
   const { isLoading, isLoggedIn } = useContext(SessionContext);
   const { width, height } = Dimensions.get("window");
+ const [fontsLoaded] = useFonts({
+  "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+  "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+});
 
 
   const wp = number => {

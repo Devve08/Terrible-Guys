@@ -1,3 +1,4 @@
+import { useFonts } from 'expo-font';
 import React, {useContext, useEffect, useState} from 'react'
 import { Text, FlatList, TouchableOpacity, Image, StyleSheet, View } from 'react-native'
 import SessionContext from '../context/SessionContext';
@@ -6,6 +7,10 @@ export default function SubCategories({navigation, route}) {
   const [subCategories, setSubCategories] = useState([])
   const { getCategoriesList, getListPlaces } = useContext(SessionContext);
   const categories = route.params.subCategories
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
 
   const getCatInfo = async (id, hotelName) => {
     console.log('lskadklslkj')
@@ -25,7 +30,7 @@ export default function SubCategories({navigation, route}) {
         renderItem={({item, index})=> (
             <TouchableOpacity onPress={()=>getCatInfo(item.pv_id, item.pv_category_title)}  key={index} style={styles.newsContainer}>
                 <Image style={styles.image} source={{uri: item.pv_profile}} />
-                <Text style={{fontSize: 16, fontWeight: 'bold'}}>{item.pv_category_title}</Text>
+                <Text style={{fontSize: 16, fontFamily: 'Myriad-Bold'}}>{item.pv_category_title}</Text>
             </TouchableOpacity>
         )}
         /> : <Text style={{paddingHorizontal: 20, textAlign: 'center'}}>There are no available places in this category at the moment</Text>}

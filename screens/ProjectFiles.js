@@ -9,11 +9,16 @@ import {
   Linking,
 } from "react-native";
 import SessionContext from "../context/SessionContext";
+import { useFonts } from "expo-font";
 
 export default function ProjectFiles(props) {
   const { getListOfProjectFiles } = useContext(SessionContext);
   const [projectFiles, setProjectFiles] = useState([]);
   let project_id = props.route.params.project_id;
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
 
   useEffect(() => {
     (async () => {
@@ -44,7 +49,7 @@ export default function ProjectFiles(props) {
                 <Text style={styles.titleText}>{item.pf_file_label}</Text>
 
                 {item.pf_creation_date ? (
-                  <Text style={{ fontSize: 16, paddingHorizontal: 10 }}>
+                  <Text style={{ fontSize: 16, paddingHorizontal: 10, fontFamily: 'Myriad-Regular' }}>
                     {item.pf_creation_date ? item.pf_creation_date : null}
                   </Text>
                 ) : null}
@@ -81,5 +86,6 @@ const styles = StyleSheet.create({
   titleText: {
     width: 250,
     fontSize: 16,
+    fontFamily: 'Myriad-Regular'
   },
 });

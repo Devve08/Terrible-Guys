@@ -10,12 +10,17 @@ import {
   import { TouchableOpacity } from "react-native-gesture-handler";
   import Ionicons from "react-native-vector-icons/Ionicons";
   import SessionContext from "../context/SessionContext";
+import { useFonts } from "expo-font";
   
   export default function DrawerContent(props) {
     const {
       actions: { Logout },
       isLoggedIn
     } = useContext(SessionContext);
+    const [fontsLoaded] = useFonts({
+      "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+      "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+    });
   
     return (
       <View style={{ backgroundColor: '#D7AF43', flex: 1 }}>
@@ -33,10 +38,10 @@ import {
               source={require("../assets/images/t_logo.png")}
               style={{
                 width: 170,
-                height: 150,
+                height: 90,
                 borderRadius:10,
                 marginBottom: 10,
-                resizeMode: 'contain'
+                resizeMode: 'stretch'
               }}
             />
           </View>
@@ -48,7 +53,7 @@ import {
             <View style={{ flexDirection: "row" }}>
               {/* <Ionicons name="exit-outline" size={22} color={Colors.darkLight} /> */}
               <Text
-                style={{ marginLeft: 10, fontSize: 20, fontWeight: 'bold', color: 'black' }}
+                style={{ marginLeft: 10, fontSize: 20, color: 'black', fontFamily: 'Myriad-Bold' }}
               >
                 Logout
               </Text>

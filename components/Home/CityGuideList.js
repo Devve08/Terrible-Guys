@@ -1,3 +1,4 @@
+import { useFonts } from "expo-font";
 import React, { useContext, useEffect, useState } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -11,6 +12,10 @@ const data = ["Restaurant 1", "Restaurant 2", "Restaurant 3", "Restaurant 4"];
 export default function CityGuideList({ navigation }) {
   const [categoryList, setCategories] = useState([]);
   const { getCategoriesList, getListPlaces } = useContext(SessionContext);
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
 
   const getCatInfo = async (id, hotelName) => {
     let res = await getCategoriesList(id);
@@ -33,7 +38,7 @@ export default function CityGuideList({ navigation }) {
         <Text
           style={{
             fontSize: 20,
-            fontWeight: "bold",
+            fontFamily: 'Myriad-Bold',
             marginBottom: 5,
             color: "#D7AF43",
           }}
@@ -44,7 +49,7 @@ export default function CityGuideList({ navigation }) {
           onPress={() => navigation.navigate("City Guide")}
           style={{ flexDirection: "row", alignItems: "center" }}
         >
-          <Text style={{ color: "#D7AF43" }}>View all</Text>
+          <Text style={{ color: "#D7AF43", fontFamily: 'Myriad-Regular' }}>View all</Text>
           <Icon color={"#D7AF43"} name="arrow-right-alt" size={22} />
         </TouchableOpacity>
       </RowSpaceContainer>

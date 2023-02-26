@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useFonts } from "expo-font";
 
 export default function HotelInfoModal({ modalOpen, closeModal, item }) {
   const openPDF = link => {
@@ -19,6 +20,10 @@ export default function HotelInfoModal({ modalOpen, closeModal, item }) {
       console.log(error.message);
     }
   };
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
 
   console.log(item);
   return (
@@ -104,6 +109,7 @@ export default function HotelInfoModal({ modalOpen, closeModal, item }) {
 const styles = StyleSheet.create({
   description: {
     fontSize: 16,
+    fontFamily: "Myriad-Regular",
     marginBottom: 40,
     paddingHorizontal: 20,
     textAlign: "center",
@@ -114,26 +120,28 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     paddingHorizontal: 10,
     textAlign: "center",
+    fontFamily: "Myriad-Regular",
     color: '#D7AF43'
   },
   website: {
     fontSize: 16,
     paddingHorizontal: 10,
+    fontFamily: "Myriad-Regular",
     textAlign: "center",
     textDecorationLine: "underline",
     color: '#D7AF43'
   },
   address: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontFamily: "Myriad-Regular",
     paddingHorizontal: 10,
     textAlign: "center",
     textDecorationLine: "underline",
     color: '#D7AF43'
   },
   hotelName: {
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 18,
+    fontFamily:'Myriad-Bold' ,
     marginBottom: 20,
     paddingHorizontal: 10,
     textAlign: "center",
@@ -141,7 +149,7 @@ const styles = StyleSheet.create({
   },
   city: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontFamily:'Myriad-Bold' ,
     marginBottom: 20,
     paddingHorizontal: 10,
     textAlign: "center",

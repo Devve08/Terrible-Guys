@@ -13,10 +13,15 @@ import {
 import SessionContext from "../context/SessionContext";
 import Entypo from "react-native-vector-icons/Entypo"
 import { Colors } from "../Styles/styles";
+import { useFonts } from "expo-font";
 
 export default function Projects({ navigation }) {
   const { projectsList, getProjectsList } = useContext(SessionContext);
   const [view, setView] = useState(0)
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
 
   useEffect(() => {
     getProjectsList()
@@ -44,7 +49,7 @@ export default function Projects({ navigation }) {
               style={styles.btnProject}
             >
               <Text style={styles.titleText}>{item.pp_project_label}</Text>
-              <Text style={{ fontSize: 16, paddingHorizontal: 10 }}>
+              <Text style={{ fontSize: 16, paddingHorizontal: 10, fontFamily: 'Myriad-Regular' }}>
                 {item.pp_project_description}
               </Text>
             </TouchableOpacity>
@@ -73,7 +78,7 @@ export default function Projects({ navigation }) {
                   >
                     <View>
                       <Text
-                        style={{ color: '#D7AF43', fontSize: 18, fontWeight: "bold" }}
+                        style={{ color: '#D7AF43', fontSize: 18, fontFamily: 'Myriad-Bold' }}
                       >
                         {item.pp_project_label}
                       </Text>
@@ -106,8 +111,9 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 17,
-    fontWeight: "bold",
+   fontFamily: 'Myriad-Bold' ,
     paddingHorizontal: 10,
+
   },
   linear: {
     height: "100%",

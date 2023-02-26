@@ -1,3 +1,4 @@
+import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import {
@@ -15,6 +16,10 @@ export default function FlatlistComponent({
   restaurant,
   onPress,
 }) {
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -37,11 +42,11 @@ export default function FlatlistComponent({
             ) : null}
             <View>
               <Text
-                style={{ color: "#D7AF43", fontSize: 18, fontWeight: "bold" }}
+                style={{ color: "#D7AF43", fontSize: 18, fontFamily: 'Myriad-Bold' }}
               >
                 {title}
               </Text>
-              <Text style={{ color: "#D7AF43" }}>{title}</Text>
+              <Text style={{ color: "#D7AF43", fontFamily: 'Myriad-Regular' }}>{title}</Text>
             </View>
           </View>
         </LinearGradient>

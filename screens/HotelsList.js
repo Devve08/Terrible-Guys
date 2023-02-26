@@ -1,3 +1,4 @@
+import { useFonts } from 'expo-font'
 import React, {useEffect, useState} from 'react'
 import {View, Image, TouchableOpacity, FlatList, Text, StyleSheet} from 'react-native'
 import HotelInfoModal from '../components/Modals/HotelInfoModal'
@@ -7,6 +8,10 @@ export default function HotelsList({navigation, route}) {
     const [modalOpen, setModalOpen] = useState(false)
     const [hotel, setHotel] = useState({})
     const hotels = route.params.hotels
+    const [fontsLoaded] = useFonts({
+        "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+        "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+      });
 
     const openModal = () => {
         setModalOpen(!modalOpen)
@@ -28,7 +33,7 @@ export default function HotelsList({navigation, route}) {
             setHotel(item)
         }} key={index} style={styles.newsContainer}>
             <Image style={styles.image} source={{uri: item.hotel_profile}} />
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}>{item.h_hotel_name}</Text>
+            <Text style={{fontSize: 16, fontFamily: 'Myriad-Bold'}}>{item.h_hotel_name}</Text>
         </TouchableOpacity>
     )}
     /> 

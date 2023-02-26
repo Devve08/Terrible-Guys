@@ -1,3 +1,4 @@
+import { useFonts } from "expo-font";
 import React, { useContext, useEffect, useState } from "react";
 import {
   Text,
@@ -12,7 +13,10 @@ import SessionContext from "../context/SessionContext";
 export default function CityGuide({ navigation }) {
   const [categories, setCategories] = useState([]);
   const { getCategoriesList, getListPlaces } = useContext(SessionContext);
-
+  const [fontsLoaded] = useFonts({
+    "Myriad-Regular": require("../assets/fonts/MYRIADPRO-REGULAR.otf"),
+    "Myriad-Bold": require("../assets/fonts/MYRIADPRO-BOLD.otf"),
+  });
   const getCatInfo = async (id, hotelName) => {
   
     let res = await getCategoriesList(id);
@@ -25,10 +29,8 @@ export default function CityGuide({ navigation }) {
   useEffect(() => {
    
     (async () => {
-      console.log('sadsad')
       const res = await getCategoriesList(0);
       setCategories(res.categories_array);
-      console.log("going to cat infi");
     })();
   }, []);
 
@@ -45,7 +47,7 @@ export default function CityGuide({ navigation }) {
             style={styles.newsContainer}
           >
             <Image style={styles.image} source={{ uri: item.pv_profile }} />
-            <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+            <Text style={{ fontSize: 16, fontFamily: 'Myriad-Bold' }}>
               {item.pv_category_title}
             </Text>
           </TouchableOpacity>
