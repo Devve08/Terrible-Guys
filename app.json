@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "productionApp",
+    "name": "Production App",
     "slug": "productionApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icontwo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/1978s.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,13 +21,23 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.devve08.testApp",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icontwo.png",
         "backgroundColor": "#FFFFFF"
       }
     },
+    "plugins": [
+      "@react-native-firebase/app"
+    ],
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8224721c-488d-4124-afa6-2d551c91b461"
+      }
     }
   }
 }
