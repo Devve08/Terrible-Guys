@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const baseURL = "http://production.ihorlubricants.me";
+const baseURL = "http://admin.terribleguys.com";
 export default function SessionProvider({ children }) {
   const [projectsList, setProjectsList] = useState([]);
   const [news, setNews] = useState();
