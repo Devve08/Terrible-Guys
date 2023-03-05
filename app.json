@@ -26,6 +26,7 @@
     "android": {
       "package": "com.devve08.testApp",
       "googleServicesFile": "./google-services.json",
+      "versionCode": 9,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icontwo.png",
         "backgroundColor": "#FFFFFF"
