@@ -78,7 +78,7 @@ function DrawerStack({ navigation }) {
                 return (
                   <Image
                     source={terribleGuys}
-                    style={{ width: wp("70%"), height: hp("10%") }}
+                    style={{ width: wp("80%"), height: hp("10%") }}
                   />
                 );
               },
@@ -101,13 +101,13 @@ function DrawerStack({ navigation }) {
                 return (
                   <Image
                     source={terriblelisbon}
-                    style={{ width: wp("55%"), height: hp("10%") }}
+                    style={{ width: wp("80%"), height: hp("15%") }}
                   />
                 );
               },
               headerStyle: {
                 backgroundColor: "#D7AF43",
-                height: hp("20%"),
+                height: hp("25%"),
               },
             }}
           />
@@ -125,7 +125,7 @@ function DrawerStack({ navigation }) {
                 return (
                   <Image
                     source={terribleGuys}
-                    style={{ width: wp("70%"), height: hp("10%") }}
+                    style={{ width: wp("80%"), height: hp("10%") }}
                   />
                 );
               },
@@ -253,7 +253,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terribleGuys}
-                      style={{ width: wp("70%"), height: hp("10%") }}
+                      style={{ width: wp("80%"), height: hp("10%") }}
                     />
                   );
                 },
@@ -272,7 +272,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terribleGuys}
-                      style={{ width: wp("70%"), height: hp("10%") }}
+                      style={{ width: wp("80%"), height: hp("10%") }}
                     />
                   );
                 },
@@ -291,13 +291,13 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terriblelisbon}
-                      style={{ width: wp("55%"), height: hp("10%") }}
+                      style={{ width: wp("80%"), height: hp("15%") }}
                     />
                   );
                 },
                 headerStyle: {
                   backgroundColor: "#D7AF43",
-                  height: hp("20%"),
+                  height: hp("25%"),
                 },
               }}
               name="SubCategories"
@@ -310,13 +310,13 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terriblelisbon}
-                      style={{ width: wp("55%"), height: hp("10%") }}
+                      style={{ width: wp("80%"), height: hp("15%") }}
                     />
                   );
                 },
                 headerStyle: {
                   backgroundColor: "#D7AF43",
-                  height: hp("20%"),
+                  height: hp("25%"),
                 },
               }}
               name="HotelsList"
@@ -329,7 +329,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terribleGuys}
-                      style={{ width: wp("70%"), height: hp("10%") }}
+                      style={{ width: wp("80%"), height: hp("10%") }}
                     />
                   );
                 },
@@ -348,7 +348,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terribleGuys}
-                      style={{ width: wp("70%"), height: hp("10%") }}
+                      style={{ width: wp("80%"), height: hp("10%") }}
                     />
                   );
                 },
@@ -404,13 +404,13 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terriblelisbon}
-                      style={{ width: wp("55%"), height: hp("10%") }}
+                      style={{ width: wp("80%"), height: hp("15%") }}
                     />
                   );
                 },
                 headerStyle: {
                   backgroundColor: "#D7AF43",
-                  height: hp("20%"),
+                  height: hp("25%"),
                 },
               }}
               name="SubCategories"
@@ -423,13 +423,13 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terriblelisbon}
-                      style={{ width: wp("55%"), height: hp("10%") }}
+                      style={{ width: wp("80%"), height: hp("15%") }}
                     />
                   );
                 },
                 headerStyle: {
                   backgroundColor: "#D7AF43",
-                  height: hp("20%"),
+                  height: hp("25%"),
                 },
               }}
               name="HotelsList"
