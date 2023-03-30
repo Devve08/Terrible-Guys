@@ -433,6 +433,7 @@ export default function RootStack() {
                 headerStyle: {
                   backgroundColor: "#D7AF43",
                   height: hp("25%"),
+                  
                 },
               }}
               name="HotelsList"
