@@ -52,6 +52,7 @@ function DrawerStack({ navigation }) {
   return (
     <Drawer.Navigator
       screenOptions={{
+        headerTintColor: "black",
         headerShown: true,
         drawerActiveBackgroundColor: "black",
         drawerActiveTintColor: "#D7AF43",
@@ -78,7 +79,7 @@ function DrawerStack({ navigation }) {
                 return (
                   <Image
                     source={terribleGuys}
-                    style={{ width: wp("80%"), height: hp("10%") }}
+                    style={{ width:250, height:100, resizeMode: 'contain' }}
                   />
                 );
               },
@@ -101,7 +102,7 @@ function DrawerStack({ navigation }) {
                 return (
                   <Image
                     source={terriblelisbon}
-                    style={{ width: wp("80%"), height: hp("15%") }}
+                    style={{ width:250, height:100,resizeMode: 'contain' }}
                   />
                 );
               },
@@ -125,7 +126,7 @@ function DrawerStack({ navigation }) {
                 return (
                   <Image
                     source={terribleGuys}
-                    style={{ width: wp("80%"), height: hp("10%") }}
+                    style={{ width:250, height:100, resizeMode: 'contain' }}
                   />
                 );
               },
@@ -232,7 +233,9 @@ export default function RootStack() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{
+        headerTintColor: 'black'
+      }}>
         {isLoading ? (
           <Stack.Screen
             options={{ headerShown: false }}
@@ -253,7 +256,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terribleGuys}
-                      style={{ width: wp("80%"), height: hp("10%") }}
+                      style={{ width:250, height:100, resizeMode: 'contain' }}
                     />
                   );
                 },
@@ -272,7 +275,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terribleGuys}
-                      style={{ width: wp("80%"), height: hp("10%") }}
+                      style={{ width:250, height:100, resizeMode: 'contain' }}
                     />
                   );
                 },
@@ -291,7 +294,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terriblelisbon}
-                      style={{ width: wp("80%"), height: hp("15%") }}
+                      style={{ width:250, height:100,resizeMode: 'contain' }}
                     />
                   );
                 },
@@ -310,7 +313,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terriblelisbon}
-                      style={{ width: wp("80%"), height: hp("15%") }}
+                      style={{ width:250, height:100,resizeMode: 'contain' }}
                     />
                   );
                 },
@@ -329,7 +332,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terribleGuys}
-                      style={{ width: wp("80%"), height: hp("10%") }}
+                      style={{ width:250, height:100, resizeMode: 'contain' }}
                     />
                   );
                 },
@@ -348,7 +351,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terribleGuys}
-                      style={{ width: wp("80%"), height: hp("10%") }}
+                      style={{ width:250, height:100, resizeMode: 'contain' }}
                     />
                   );
                 },
@@ -404,7 +407,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terriblelisbon}
-                      style={{ width: wp("80%"), height: hp("15%") }}
+                      style={{ width:250, height:100,resizeMode: 'contain' }}
                     />
                   );
                 },
@@ -423,7 +426,7 @@ export default function RootStack() {
                   return (
                     <Image
                       source={terriblelisbon}
-                      style={{ width: wp("80%"), height: hp("15%") }}
+                      style={{ width:250, height:100,resizeMode: 'contain' }}
                     />
                   );
                 },
